@@ -1,0 +1,86 @@
+\documentclass[report,14pt]{extarticle}
+\raggedbottom
+% polyglossia should go first!
+\usepackage{polyglossia} % multi-language support
+
+\setdefaultlanguage{russian}
+\setmainfont{Times New Roman}
+\setsansfont{Times New Roman}
+\setmonofont{CMU Typewriter Text}
+
+\setmainlanguage{russian}
+\setotherlanguage{english}
+
+\usepackage{setspace}
+\onehalfspacing
+
+\DeclareSymbolFont{letters}{\encodingdefault}{\rmdefault}{m}{it}
+\usepackage{amsmath} % math symbols, new environments and stuff
+\usepackage{unicode-math} % for changing math font and unicode symbols
+\usepackage{bbm}
+\setmathfont{XITS Math}
+
+\parindent=1.5cm
+\usepackage{indentfirst}
+\usepackage[left=3.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm,bindingoffset=1cm]{geometry} %GOST 
+%for margins in title page
+\renewcommand{\baselinestretch}{1.5}
+
+\usepackage[style=english]{csquotes} % fancy quoting
+\usepackage{microtype} % for better font rendering
+\usepackage[backend=biber, sorting=none, style=gost-numeric]{biblatex} % for 
+%bibliography
+\addbibresource{reference_list.bib}
+
+\usepackage{hyperref} % for refs and URLs
+\usepackage{graphicx} % for images (and title page)
+\usepackage{tabu} % for tabulars (and title page)
+\usepackage{placeins} % for float barriers
+\usepackage{titlesec} % for section break hooks
+
+\usepackage[labelsep=endash]{caption}
+\captionsetup[table]{
+    singlelinecheck=false, %table caption per GOST, not centered
+    justification=justified}
+\captionsetup[figure]{
+    name=Рисунок           %picture caption per GOST
+}
+
+\usepackage{subcaption} % for subfloats
+
+\usepackage{listings} % for listings
+\newfontfamily\listingsfont{Source Code Pro}
+
+\usepackage{enumitem} % for unboxed description labels (long ones)
+\usepackage{tikz}     % tikz pictures
+\usepackage{rotating} % landscape pictures
+
+\defaultfontfeatures{Mapping=tex-text} % for converting "--" and "---"
+
+\MakeOuterQuote{"} % enable auto-quotation
+
+% new page and barrier after section, also phantom section after clearpage for
+% hyperref to get right page.
+% clearpage also outputs all active floats:
+\newcommand{\sectionbreak}{\clearpage\phantomsection}
+\newcommand{\subsectionbreak}{\FloatBarrier}
+\newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
+\renewcommand{\thesection}{\arabic{section}} % no chapters
+\numberwithin{equation}{section}
+
+\setcounter{tocdepth}{3}
+
+\usepackage{lastpage}
+\usepackage[figure,table,xspace]{totalcount}
+
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\makeatletter
+\define@key{blx@lbx}{fromjapanese}{\blx@defstring{fromjapanese}{#1}}
+\define@key{blx@lbx}{langjapanese}{\blx@defstring{langjapanese}{#1}}
+\makeatother
+
+\usepackage[final]{pdfpages}
