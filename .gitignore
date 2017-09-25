@@ -5,3 +5,6 @@
 *.bcf
 *.blg
 *.out
+*.tsv
+*.csv
+*.gz
